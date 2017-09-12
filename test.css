@@ -71,7 +71,7 @@ a {
   font-size:1.4em;
   letter-spacing: 1px; /*Brendon and Tibor were here */
 }
-.btn-primary, .btn-email, .btn-google-sign-in {
+.btn-google-sign-in {
   border-radius: 0;
   color: #6d6d6d;
   font-size:1.4em;
