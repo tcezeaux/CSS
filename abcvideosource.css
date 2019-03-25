@@ -88,9 +88,11 @@ body {
     background: url("https://d2jxovief2a9za.cloudfront.net/VideoSource_Logo_600x400_Color_Joe.png") no-repeat 0 0;
     display: block;
     background-size: contain;
-    margin: 0 auto;
+    margin: 10px auto;
     background-color: black;
-    height: 75px;
+    height: 60px;
+    width: 140px;
+
 }
 
 .logo.logo-secondary {
