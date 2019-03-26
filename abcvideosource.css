@@ -79,7 +79,7 @@ body {
 .header {
     text-align: center;
     overflow: hidden;
-    background-color: black;
+    background-color: midnightblue;
     margin: 0px 0px 20px;
 }
 
@@ -89,7 +89,7 @@ body {
     display: block;
     background-size: contain;
     margin: 10px auto;
-    background-color: black;
+    background-color: transparent;
     height: 60px;
     width: 140px;
 
