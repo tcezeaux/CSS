@@ -84,7 +84,7 @@ body {
 
 .logo.logo-primary {
     font-size: 0;
-    background: url(https://abc-public-objects.s3.amazonaws.com/StoreFront/logo/abcvs_email_logo_nobox.png) no-repeat 0 0;
+    background: url("https://abc-public-objects.s3.amazonaws.com/StoreFront/logo/abcvs_email_logo_nobox.png") no-repeat 0 0;
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: contain;
