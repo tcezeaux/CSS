@@ -9,6 +9,10 @@ body {
     background: #fff
 }
 
+.social-login-help:before {
+    content: 'Your previous Footytips password is no longer valid.  Please use the "Need help signing in?" link above to set a new password. '
+}
+
 #close {
     width: 44px;
     height: 44px;
