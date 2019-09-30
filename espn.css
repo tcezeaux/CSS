@@ -10,7 +10,7 @@ body {
 }
 
 .social-login-help:before {
-    content: 'Your previous Footytips password is no longer valid.  Please use the "Need help signing in?" link above to set a new password. '
+    content: "Footytips recently updated our User Account system. If this is your first time logging in since last season, please use the 'Need Help Signing In' link to update your account password."
 }
 
 #close {
