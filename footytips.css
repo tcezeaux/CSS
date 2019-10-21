@@ -1,0 +1,831 @@
+/** GENERATED: Mon Oct 21 16:05:00 GMT 2019 **/
+html {
+    color: #333;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 13px
+}
+
+body {
+    background: #fff
+}
+
+#close {
+    width: 44px;
+    height: 44px;
+    top: 8px;
+    right: 8px;
+    background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDMwIDMwIj48cGF0aCBmaWxsPSIjMzMzIiBkPSJNMjkuMyAyLjhMMTcuMiAxNWwxMi4yIDEyLjItMi4xIDIuMkwxNSAxNy4xIDIuOCAyOS40LjcgMjcuMiAxMi44IDE1IC43IDIuOCAyLjguNiAxNSAxMi45IDI3LjIuNmwyLjEgMi4yeiIvPjwvc3ZnPg==) no-repeat center center;
+    background-size: 16px;
+    opacity: .8;
+    -webkit-transition: opacity .2s;
+    transition: opacity .2s
+}
+
+#close:hover {
+    opacity: 1
+}
+
+#close::after {
+    display: none;
+    font-weight: 100;
+    color: #bebebe
+}
+
+#close:hover::after {
+    display: none;
+    color: #666
+}
+
+.loading-indicator {
+    z-index: 1000002
+}
+
+.main {
+    margin: 0 25px 25px
+}
+
+.content {
+    background: #fff;
+    padding-bottom: 8px
+}
+
+.header {
+    margin: 30px 40px 25px;
+    text-align: center;
+    overflow: hidden
+}
+
+.logo.logo-primary {
+    font-size: 0;
+    background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQkAAAAyCAMAAAB4fN6MAAAAzFBMVEUAAADvPjbvPjbvPjbvPjb////////////////////////vPjb////////////////////////////////////vPjb////////////////////////////vPjb////////////////vPjb////////////////////////////////vPjb////vPjb////vPjb////vPjb////vPjb////////////////////////vPjbvPjbvPjbvPjbvPjbvPjbvPjbvPjb////vPjaI8AmxAAAAQnRSTlMAsHAQgGCgBPsf4CAP1pCmWQlwI0wI9tA7mmjkdUwZ7L6xjFLww7etfkYuLvLq6NgUmIRmQcqUizMpFlb1zae+Onavya3WAAAGVUlEQVRo3u2Z6XaiMBSA79Rq0AERxd2671pr1bp1j+//TmMhyQ0meuiZ5diO358ZIabkI3cB4cKFCxcunB8kVezk8/WlS+AvErfHxsMAzplBgjJs+HtUy3SP4cL5UjAoJwp/jyL1sOB8yVNOzvzUTV6Ukl3ndNhl3HSxCB4W9ZnCubKmAhvCUx/TD06qsrzd1vkqJkrUw6i4swKExw+p9smwox4N8Fj6nx7gbOlTjx58CpN6JOAErthpmDFzBThbmInYJytBCBOt4MzV2KTdXcPvMbpWmANA9uZdOa6M+wkAkcOj72/AqWhMOCYBBSIfjIcwkcKZ/xjXO4VXgMfbXRjuAd4034/4uzzZYdUtmUzO/E1tf+zjsp2SbRSKCYPSSaPk+PpYTRzvv5VKVVbFXsdagE866TFMdnHmNUDVLfWLvYfVh9NNatbowGaZryXq/TjegKidL9cSnWXLgSPc69b3uAvJlXboC7+3SB0Ahg+UYxVELHQpZ+L6lRepsJNJlkEMVpGpRAEgKnZI3/DHGzxXg0+0RjntZAa0vO4UrrO3YU3cwbvucFYxsQJYjCkHG8LhhEqUDkwsokxcICZskCdyZBMlesBMFBfE0Ffbu53C/G0XlifcUzIjxUQKhmMqM86IrI8Yi6AJk+0C6m/znv9hABSxQDYxoIcUuEEkBlqedgpv89AmbuGH7vBPxUSGPLDFtqnUC9jUp8bXRWQTCYCu1Ks7OfpBmcDBstDEhiL4ZxI0gD46Ij9Uto8/wtKEpu6wFx0kzmpHLx6P87o3iUMFL2jI7Kz5aTqAKuuayvF4VSyyJwXHDECa2ZRMoP2xbefY3CYMKRs93LjJCbXhn4NXuKcrlkHYrqiI+O1heihiFZWTZJvgBsoEZw58MrllTBmusNzy7k9pA1qyERVQDhwdmgXdkKxqwjHwajpi/QnhBJ8ngyagK8LdGWNPfcyEQ30ApaT5aVqOVuEoutT/qmbRu+ssaHPj1UiqFmLIi2qiICWwBl/0VHpiX7FnVjQRmGMm+srSKROAJmDMq9ZAyjx2dBq+nXiBO50ebW68ueGZc48Y0lRMiPQ9xF1eFgHcws6cmgcmTIPvhBiL+7AmEjzezByVyK0cUNEurwmvujWjH4ntlf/vc6Akz1UTJQxgtiTaFjfLPWoCw2MKE9ZMfNLEku03pE7CthPavrGpq7f30PT/8yNQkm+Om4hLe0KYWBw1gZOkMmjtUyZWAMSmAaIh2gm2jvmtaiKiNhPX2WA88CGj49GRwTyRh7W0J5LaPIHhUfRnmJDQJliJ6sMetytHSAdUInz1PxEv+W3FR5ZJ3kd8mfzEFvY88+ePD/gQTe1YSHmizmtHXMoTRa4HTQTCw5qxOxzWhCO6Ww+yLtkTynWr4LUf5cUf8Yi5UeZWjgcxRDUxxUCQamcby0H9sJ+oBWcx6sIkztw4bkJ2PywR38YSTwfAa3+6QvZp4kqGZZI3zI0S2UA84BD1zll8r4qdsBFxEhPNAnXFecMJhochmgmcuXPUhJg7RwBsavnvAQY8V6tc7RSeMYvKbDE3avaU31nhENVEhXXbhWoDV9FiV9uqsrtVJmiqQoi/A+pUkMaZ2RObk9GZ6K46VPRvGW/mWcEs5I+/8Gzq2omnU49aTe2eUtoJxYRZ0zwkEouqWX0qKr/h37y0+jztUsaYdnUmkIFIQUg6ZDux1b6dwtwoM+evKTxwiGJCeTROHv40hHFfO3hszFBODxgbHFI7aaIOUDVoEMsBlWdNOzHSvZHZYm5kqPGAQ1QTGB/sGAHfjyFftoM/acmJP0GxyDDyOCZ+wkS5CrCY0ACJDGi41bQTj5qI2WJu1BWWezV9qiagVRb3sQScgiWCoc/smLjMvncgxr9GgLOu4f4/biLvLdpJWxSxp6DjSmU7Ojgwv9kCQIR9yoIELzNvALohm7THABhOyrbaNcuOOoAQN5av1axGaYqHot1EjtYekgW27HSeRRQy7XcmhjGp9zOBv8NueyO3N1uPEiFuVm9/ZJXOLANfmozB6u5p0AQQ01R/SnDgq0PqrO6GNdGG74ljY74MZ8KA70g8XeZve0OboPD9WFtSjfivTRDRSxTh/zYhWtMGAfi/8wTxWolxhUBYE4mla8J3xM1Zdir00nqlL946Xbhw4cK58gtpFaUX1BO2HgAAAABJRU5ErkJggg==) no-repeat center center;
+    display: block;
+    height: 23px;
+    width: 90px;
+    background-size: contain;
+    margin: 0 auto 0
+}
+
+.logo.logo-secondary {
+    display: none
+}
+
+a {
+    color: #3b81c3
+}
+
+a:hover {
+    color: #3570a8
+}
+
+.section {
+    padding-top: 18px;
+    box-shadow: inset 0 1px rgba(0, 0, 0, 0.1), inset 0 2px white;
+    margin-top: 0
+}
+
+.section:first-of-type {
+    padding-top: 0;
+    box-shadow: none
+}
+
+.title {
+    font-weight: normal
+}
+
+.title-primary {
+    border-bottom: 1px solid #ddd;
+    padding: 0 0 14px;
+    line-height: 1.2
+}
+
+.btn-group {
+    margin-bottom: 18px
+}
+
+.btn {
+    color: #3b81c3;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.1rem
+}
+
+.btn:hover {
+    color: #3570a8
+}
+
+.btn-primary {
+    background: #36c;
+    width: 100%;
+    margin: 0 auto
+}
+
+.btn-primary:hover {
+    background: #3a7fef
+}
+
+.btn-primary,
+.btn-email,
+.btn-facebook,
+.btn-google-plus {
+    margin-bottom: 8px;
+    text-shadow: none;
+    box-shadow: none;
+    color: white;
+    background-image: none;
+    border-radius: 40px
+}
+
+.btn-email,
+.btn-facebook,
+.btn-google-plus {
+    max-width: none
+}
+
+.btn-primary:hover,
+.btn-email:hover,
+.btn-facebook:hover,
+.btn-google-plus:hover {
+    color: white
+}
+
+.btn-email::before,
+.btn-facebook::before,
+.btn-google-plus::before {
+    border-right: 0 none;
+    background-size: 22px
+}
+
+.btn-email {
+    background: #cd2027
+}
+
+.btn-email:focus,
+.btn-email:hover {
+    background: #98181d
+}
+
+.btn-email::before {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MzEiIGhlaWdodD0iNDkzIiB2aWV3Qm94PSIxMzIgMCA3MzEgNDkzIj48dGV4dCB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDQuODk5IC03NDIuMzE3KSIgZmlsbD0iI0ZGRiIgZm9udC1mYW1pbHk9IidFU1BOLUljb25zQkVUQUZpZnRlZW4nIiBmb250LXNpemU9IjcxNC4yODYiPnszMDR9PC90ZXh0PjxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0xMzYuOSA2SDg1MXY4My4zTDQ5NCAzMTUuNSAxMzcgODkuMyAxMzYuOSA2ek01MDAgMzU3LjFMODU3IDEzMXYzNTdIMTQzVjEzMWwzNTcgMjI2LjF6Ii8+PC9zdmc+);
+    left: 48%;
+    margin-left: -90px
+}
+
+.btn-facebook::before {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2LjUiIGhlaWdodD0iMTIuMiIgdmlld0JveD0iMCAwIDYuNSAxMi4yIj48cGF0aCBmaWxsPSIjRkZGIiBkPSJNNC4yIDEyLjFIMlY2LjZILjFWNC41SDJWMi45YzAtLjkuMi0xLjYuNy0yLjEuNS0uNSAxLjItLjcgMi0uN2gxLjZWMkg1LjJjLS40IDAtLjcuMS0uOS4zLS4xLjMtLjEuNS0uMS44djEuNGgyLjFMNiA2LjZINC4ydjUuNXoiLz48L3N2Zz4=);
+    background-size: 12px;
+    left: 48%;
+    margin-left: -95px
+}
+
+.btn-google-plus {
+    padding-left: 40px
+}
+
+.btn-google-plus::before {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMy43IiBoZWlnaHQ9IjI0LjIiIHZpZXdCb3g9IjAgMCAyMy43IDI0LjIiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xMi42IDEzLjZjLTIuMi0xLjYtMi43LTIuNS0uNi00LjEgMS4yLS45IDItMi4yIDItMy43IDAtMS43LS43LTMuMi0yLTMuOWgxLjhsMS41LTEuNWgtNi45Yy00LjMgMC02LjQgMi42LTYuNCA1LjQgMCAyLjkgMiA1LjIgNS45IDUuMi0uNiAxLjItLjQgMi4zLjYgMy4xLTYuNiAwLTguMSAyLjktOC4xIDUuMiAwIDIuOSAzLjMgNC42IDcuNCA0LjYgNS41IDAgNy43LTIuOSA3LjctNS4zLjEtMi0uNy0zLjMtMi45LTV6bS03LjktOGMtLjMtMi40LjktNC4zIDIuOC00LjIgMS45LjEgMy41IDIuMSAzLjggNC41LjMgMi40LS44IDQtMi42IDQtMS45LS4xLTMuNy0xLjgtNC00LjN6bTMuMiAxNi45Yy0yLjggMC00LjgtMS44LTQuOC0zLjkgMC0yLjEgMi4zLTMuOCA1LjEtMy44IDMuMSAwIDQuOSAxLjkgNC45IDMuOS4xIDIuMi0xLjYgMy44LTUuMiAzLjh6bTEyLjUtMTIuNXYtMi42aC0xLjZ2Mi42aC0yLjZ2MS42aDIuNnYyLjdoMS42di0yLjdoMi43di0xLjZoLTIuN3oiLz48L3N2Zz4=);
+    background-size: 20px;
+    left: 48%;
+    margin-left: -88px
+}
+
+.btn-delete {
+    color: #c00;
+    border-radius: 40px
+}
+
+.btn-delete:hover {
+    color: #900
+}
+
+.btn-group-create-account {
+    text-align: center;
+    border-top: 0;
+    padding: 13px 0 0
+}
+
+.btn-group-create-account .btn {
+    background: #fff;
+    color: #36c;
+    border: 1px solid #36c;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+    text-decoration: none
+}
+
+.btn-group-create-account .btn:hover {
+    background: #3a7fef;
+    color: #fff;
+    text-decoration: none
+}
+
+.banner.message-success .container,
+.banner.message-error .container,
+.banner.message-info .container {
+    background-color: #fff;
+    background: linear-gradient(to bottom, #fff 0, #f5f5f5 100%)
+}
+
+.banner.message-success .container {
+    color: #333;
+    border: 2px solid #008000
+}
+
+.banner.message-error .container {
+    color: #c00;
+    border: 1px solid #e7e7e7;
+    background: #f7f7f7 none
+}
+
+.banner.message-info .container {
+    color: #333;
+    border: 2px solid #249ef7
+}
+
+.field {
+    margin-bottom: 8px
+}
+
+.field .name {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 700
+}
+
+.checkbox {
+    padding-left: 1.7rem
+}
+
+.checkbox .name {
+    display: block;
+    line-height: 1.5;
+    font-size: 1rem
+}
+
+.field-tou .checkbox {
+    margin: 0 auto
+}
+
+.field-tou .message-error {
+    text-align: center
+}
+
+.field-error input:not([type="checkbox"]):not([type="radio"]),
+.field-error input:not([type="checkbox"]):not([type="radio"]):focus,
+.field-error select,
+.field-error select:focus {
+    border-color: #c00;
+    box-shadow: none
+}
+
+.field .message-error,
+.field-error .name {
+    color: #c00
+}
+
+.field-error input:not([type="checkbox"]):not([type="radio"])::-webkit-input-placeholder {
+    color: #999
+}
+
+.field-error input:not([type="checkbox"]):not([type="radio"])::-moz-placeholder {
+    color: #999
+}
+
+.field-error input:not([type="checkbox"]):not([type="radio"]):-ms-input-placeholder {
+    color: #999
+}
+
+.field-tou.field-error .name {
+    color: #333
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+.toggle .name {
+    border: 1px solid #ccc;
+    box-shadow: none;
+    border-radius: 4px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.2rem !important
+}
+
+.toggle .name {
+    font-family: Helvetica, Arial, sans-serif !important;
+    font-weight: 400 !important;
+    width: 49%
+}
+
+.toggle .label {
+    display: inline-block;
+    width: 50%
+}
+
+.toggle input[type="radio"]:checked+.name {
+    color: #111
+}
+
+.toggle.focused {
+    border-radius: 4px;
+    box-shadow: none
+}
+
+input:not([type="checkbox"]):not([type="radio"]) {
+    line-height: normal
+}
+
+input:not([type="checkbox"]):not([type="radio"]):focus,
+select:focus {
+    border-color: #249ef7;
+    box-shadow: none
+}
+
+textarea,
+input[type="text"],
+input[type="submit"],
+input[type="password"],
+input[type="email"] {
+    -webkit-appearance: none
+}
+
+input::-webkit-input-placeholder {
+    color: #999;
+    opacity: 1;
+    font-size: 1.2rem
+}
+
+input:-moz-placeholder {
+    opacity: 1;
+    color: #999
+}
+
+input::-moz-placeholder {
+    opacity: 1;
+    color: #999
+}
+
+input:-ms-input-placeholder {
+    color: #999;
+    opacity: 1
+}
+
+select {
+    color: #999;
+    background: white url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMy43IiBoZWlnaHQ9IjguNyIgdmlld0JveD0iMCAwIDEzLjcgOC43Ij48cGF0aCBmaWxsPSIjOTk5IiBkPSJNNi44IDguM0wuNCAxLjggMS43LjRsNS4xIDUuMUwxMiAuNGwxLjMgMS40LTYuNSA2LjV6Ii8+PC9zdmc+) no-repeat right .75em center;
+    background-size: .75em auto;
+    padding-right: 2em;
+    border-radius: 4px
+}
+
+@media all and (min-width:0\0) and (min-resolution:.001dpcm) {
+    select {
+        padding-right: 0 !important
+    }
+}
+
+@-moz-document url-prefix() {
+    select {
+        background-image: none;
+        -moz-appearance: menulist;
+        padding-right: 10px !important
+    }
+}
+
+select.ng-valid {
+    color: #333
+}
+
+.checkbox input[type="checkbox"]:checked+.name::before {
+    -webkit-transition: background-color 70ms;
+    transition: background-color 70ms;
+    background: transparent none;
+    background-size: auto;
+    border: 0 none;
+    border-color: transparent
+}
+
+.checkbox input[type="checkbox"]+.name::before {
+    content: ' ';
+    position: absolute;
+    left: 3px;
+    top: 4px;
+    display: block;
+    background-color: #fff;
+    border-radius: 2px;
+    border: 0 none;
+    border-radius: 2px;
+    box-shadow: none;
+    width: 10px;
+    height: 10px;
+    z-index: 1000001;
+    border-color: transparent
+}
+
+.checkbox input[type="checkbox"]+.name::after {
+    content: ' ';
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    height: 14px;
+    left: 0;
+    top: 1px;
+    width: 14px
+}
+
+.checkbox input[type="checkbox"]:checked+.name::before {
+    background-color: #666;
+    border-color: transparent
+}
+
+.checkbox input[type="checkbox"]:not(:checked):focus+.name::before {
+    left: 2px;
+    top: 3px
+}
+
+.value {
+    border-top: 1px solid #ccc
+}
+
+.value .action {
+    text-align: right
+}
+
+.toggle .name {
+    background: #fbfbfb none;
+    filter: none;
+    box-shadow: none;
+    color: #aaa
+}
+
+.toggle label:first-child .name {
+    border-radius: 4px 0 0 4px;
+    border-right: 1px solid #ccc
+}
+
+.toggle label:last-child .name {
+    box-shadow: none;
+    border-left: 1px solid #ccc
+}
+
+.toggle input[type="radio"]:checked+.name {
+    background: white;
+    filter: none;
+    box-shadow: none
+}
+
+.toggle label:first-child+label .name {
+    box-shadow: none
+}
+
+.list-item .btn {
+    margin-bottom: 18px
+}
+
+.dialog {
+    background: #faf7f6
+}
+
+.block-update-text p {
+    font-size: 1.1rem
+}
+
+.loading-indicator {
+    background-color: #faf7f6
+}
+
+.workflow-ipas-selection .title-alert {
+    color: #c00
+}
+
+.workflow-login .title-primary {
+    display: none
+}
+
+.workflow-login .block-forgot-password-username {
+    font-size: 1rem;
+    margin-bottom: 20px
+}
+
+.workflow-login .block-forgot-password-username p a {
+    font-family: Helvetica, Arial;
+    font-weight: 700
+}
+
+.workflow-login .field-password {
+    margin-bottom: 8px
+}
+
+.workflow-edit .block-forgot-password-username p {
+    text-align: center
+}
+
+.workflow-edit .block-forgot-password-username p a {
+    font-family: Helvetica, Arial;
+    font-weight: 700
+}
+
+.workflow-create-profile input:not([type="checkbox"]):not([type="radio"]),
+.workflow-create-profile input[type="password"],
+.workflow-create-profile input[type="text"],
+.workflow-create-profile select,
+.workflow-create-profile .toggle .name {
+    font-size: 1.2rem !important
+}
+
+.workflow-create-profile .section-submit {
+    padding-top: 8px;
+    box-shadow: none
+}
+
+.workflow-create-profile .section-gender-dob-lang {
+    box-shadow: none;
+    padding-top: 0
+}
+
+.workflow-create-profile .field-dob select {
+    max-width: 100px;
+    min-width: inherit !important
+}
+
+.workflow-create-profile .field-dob .birth-month {
+    width: 36%
+}
+
+.workflow-create-profile .field-dob .birth-day {
+    width: 27%
+}
+
+.workflow-create-profile .field-dob .birth-year {
+    width: 30%
+}
+
+.workflow-launch-registration .section-communication {
+    box-shadow: none;
+    padding-top: 10px
+}
+
+.workflow-launch-registration .section-deprioritized-legal {
+    box-shadow: none;
+    padding-top: 8px
+}
+
+.workflow-launch-registration .section-primary .ng-isolate-scope.block {
+    margin-top: 15px !important
+}
+
+.workflow-launch-registration .section-primary div:first-child p {
+    margin-bottom: 0 !important
+}
+
+.workflow-launch-registration .field-tou {
+    margin-bottom: 16px
+}
+
+.workflow-launch-registration .field-tou .name {
+    font-family: Helvetica, Arial, sans-serif
+}
+
+.workflow-launch-registration .section-communication h3 {
+    display: none
+}
+
+.workflow-launch-registration .section-login p a {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 700
+}
+
+.workflow-launch-social-registration .btn-facebook {
+    display: none
+}
+
+.section-communication .checkbox span {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 700
+}
+
+.workflow-recover-password .btn-group,
+.workflow-recover-username .btn-group {
+    text-align: center
+}
+
+.workflow-recover-password .btn-group .btn,
+.workflow-recover-username .btn-group .btn,
+.workflow-update-display-name button:nth-of-type(2) {
+    display: inline-block
+}
+
+.workflow-recover-password .btn-group .btn-secondary,
+.workflow-recover-username .btn-group .btn-secondary,
+.workflow-update-address .btn-group .btn-secondary,
+.workflow-reauth .btn-group .btn-secondary,
+.workflow-update-display-name button:nth-of-type(2) {
+    line-height: 1.1rem;
+    margin-bottom: 0;
+    margin-top: 16px;
+    width: 100%;
+    outline: 0;
+    border: 0 none
+}
+
+.workflow-recover-password .btn-group .btn-secondary:hover,
+.workflow-recover-username .btn-group .btn-secondary:hover,
+.workflow-update-address .btn-group .btn-secondary:hover,
+.workflow-reauth .btn-group .btn-secondary:hover,
+.workflow-update-display-name button:nth-of-type(2):hover {
+    border: 0 none;
+    line-height: 1.1rem
+}
+
+.btn-secondary {
+    border-radius: 40px
+}
+
+.btn-secondary:focus,
+.btn-secondary:hover {
+    outline: 0;
+    text-decoration: underline
+}
+
+.workflow-update-address .btn-group .btn-primary {
+    margin-top: 10px
+}
+
+.workflow-update-address .btn-group .btn-delete {
+    margin-top: 14px
+}
+
+.workflow-update-profile .field-dob,
+.workflow-create-profile .field-dob {
+    padding-top: 8px
+}
+
+.workflow-update-profile .field-dob .name,
+.workflow-create-profile .field-dob .name,
+.workflow-create-profile .field-dob .message-error {
+    font-size: 1rem
+}
+
+.workflow-update-profile .section-addresses h3>a {
+    width: auto;
+    margin: 0 auto;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1rem;
+    float: right;
+    line-height: 2.8rem
+}
+
+.workflow-update-profile .section-submit {
+    box-shadow: none;
+    padding-top: 8px
+}
+
+.section-username-password {
+    padding-top: 0;
+    box-shadow: none
+}
+
+.section-gender-dob {
+    padding-top: 0;
+    box-shadow: none
+}
+
+.show-password-action {
+    padding: .2em 0 0
+}
+
+.footer {
+    margin: 18px 25px 0
+}
+
+.footer-login-link {
+    font-weight: normal;
+    font-size: 1.1em !important
+}
+
+.footer-login-link a {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 600
+}
+
+.block-customer-support-reference {
+    text-align: center;
+    margin-top: 20px
+}
+
+.show-password-action .checkbox {
+    min-height: 2rem
+}
+
+@media screen and (min-width:330px) {
+    .checkbox {
+        padding-left: 2rem
+    }
+}
+
+@media screen and (min-width:420px) {
+    body {
+        background: rgba(0, 0, 0, .7) none
+    }
+
+    .dialog {
+        background: rgba(250, 247, 246, 0.8)
+    }
+
+    .wrapper {
+        font-size: 13px
+    }
+
+    .content {
+        box-shadow: none;
+        border-radius: 8px
+    }
+
+    .main {
+        margin: 0 40px 25px
+    }
+
+    .footer {
+        margin: 18px 40px 0
+    }
+
+    .workflow-create-profile .field-dob select {
+        max-width: none !important;
+        min-width: inherit !important
+    }
+}
+
+@media screen and (max-width:414px) {
+    #close {
+        top: 4px
+    }
+
+    .header {
+        margin: 16px 40px
+    }
+
+    .block {
+        margin-bottom: 10px
+    }
+
+    .title-primary {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        padding-bottom: 10px
+    }
+
+    .section {
+        padding-top: 10px
+    }
+
+    .section-addresses {
+        padding-top: 0
+    }
+
+    .show-password-action {
+        margin-bottom: 0
+    }
+
+    .show-password-action .checkbox {
+        padding-bottom: .5rem
+    }
+
+    .section-communication {
+        padding-top: 6px
+    }
+
+    .section-communication>div:first-child {
+        margin-bottom: 6px
+    }
+
+    .section-communication p.legal {
+        margin-bottom: 0
+    }
+
+    .workflow-create-profile .section-submit {
+        padding-top: 0
+    }
+}
+
+.logo-primary span {
+    background-image: none !important
+}
+
+.loading-indicator.state-success+.success-check {
+    z-index: 1000002
+}
+
+.workflow-login .block-forgot-password-username,
+.workflow-login .block-need-help-signing-in {
+    text-align: center
+}
+
+p.social-login-help {
+    color: #6c6d6f
+}
+
+@supports(-webkit-overflow-scrolling:touch) {
+
+    a:focus,
+    a:hover {
+        text-decoration: unset
+    }
+}
