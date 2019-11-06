@@ -1,0 +1,9 @@
+.finish-sign-in .btn-primary {
+    display: none;
+}
+
+.finish-sign-in .btn-secondary {
+    background: #36c;
+    color: white;
+}
+
