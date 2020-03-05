@@ -9,3 +9,7 @@
     background-size: contain;
     margin: 0 auto 0
 }
+/* hide standard logo */
+.logo-primary span {
+    display:none
+}
