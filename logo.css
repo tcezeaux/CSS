@@ -2,10 +2,9 @@
 
 /*Product Logo*/
 .product-logo {
- background-image: url('https://cdn.d23.com/cdn2015/wp-content/uploads/2017/02/D23-logo-official-fan-club.png') !important; 
+ background-image: url('https://tcezeaux.github.io/CSS/generic-logo.png') !important; 
     height: 75px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position-x: center;
- color: rgba(0,0,0,0);
 }
