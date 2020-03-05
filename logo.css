@@ -11,5 +11,6 @@
 }
 /* hide standard logo */
 .logo-primary span {
+    background-image: none !important;
     display:none
 }
