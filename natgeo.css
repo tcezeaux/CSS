@@ -530,6 +530,6 @@ label:not(.checkbox) .name {
     }
 }
 
-body [data-style="red"] {
+[data-style="red"] body {
     background: red;
 }
