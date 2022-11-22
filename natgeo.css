@@ -1,0 +1,535 @@
+
+@font-face {
+    font-family: 'GeoEditRegular';
+    src: url('https://assets-cdn.nationalgeographic.com/natgeo/static/fonts/geographeditweb-regular.eot');
+    src: url('https://assets-cdn.nationalgeographic.com/natgeo/static/fonts/geographeditweb-regular.eot?#iefix')
+            format('embedded-opentype'),
+        url('https://assets-cdn.nationalgeographic.com/natgeo/static/fonts/geographeditweb-regular.woff2')
+            format('woff2'),
+        url('https://assets-cdn.nationalgeographic.com/natgeo/static/fonts/geographeditweb-regular.woff')
+            format('woff'),
+        url('https://assets-cdn.nationalgeographic.com/natgeo/static/fonts/geographeditweb-regular.ttf')
+            format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GeoEditMedium';
+    src: url('https://assets-cdn.nationalgeographic.com/natgeo/static/fonts/geographeditweb-medium.eot');
+    src: url('https://assets-cdn.nationalgeographic.com/natgeo/static/fonts/geographeditweb-medium.eot?#iefix')
+            format('embedded-opentype'),
+        url('https://assets-cdn.nationalgeographic.com/natgeo/static/fonts/geographeditweb-medium.woff2')
+            format('woff2'),
+        url('https://assets-cdn.nationalgeographic.com/natgeo/static/fonts/geographeditweb-medium.woff')
+            format('woff'),
+        url('https://assets-cdn.nationalgeographic.com/natgeo/static/fonts/geographeditweb-medium.ttf')
+            format('truetype');
+    font-display: swap;
+}
+
+html {
+    color: #555555;
+    font-family: "GeoEditRegular", Arial, sans-serif !important;
+    font-size: 14px;
+}
+
+body {
+    background: #fff;
+}
+
+p {
+    color: #555555;
+    font-size: 14px;
+}
+
+a, .btn {
+    color: #000;
+    font-family: "GeoEditMedium", Arial, sans-serif !important;
+}
+
+.btn {
+    font-size: 12px;
+    letter-spacing: 2px;
+    z-index: 1;
+}
+
+.btn + .btn {
+    margin-top: 15px;
+}
+
+#close {
+    width: 44px;
+    height: 44px;
+    top: 10px;
+    right: 10px;
+    background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDMwIDMwIj48cGF0aCBmaWxsPSIjMzMzIiBkPSJNMjkuMyAyLjhMMTcuMiAxNWwxMi4yIDEyLjItMi4xIDIuMkwxNSAxNy4xIDIuOCAyOS40LjcgMjcuMiAxMi44IDE1IC43IDIuOCAyLjguNiAxNSAxMi45IDI3LjIuNmwyLjEgMi4yeiIvPjwvc3ZnPg==) no-repeat center center;
+    background-size: 24px;
+    opacity: .8;
+    -webkit-transition: opacity .2s;
+    transition: opacity .2s;
+}
+
+#close:hover {
+    opacity: 1;
+}
+
+#close:after {
+    display: none;
+}
+
+.logo.logo-primary {
+    font-size: 0;
+    background: transparent url('data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMzkuNTQgNDEiPgogIDxnPgogICAgPHBhdGggZD0iTTI0MS43NCw0MjEuNDN2LTQxaDI4LjYxdjQxSDI0MS43NFptMjQuNDctNC4xM1YzODQuNTZIMjQ1Ljg2VjQxNy4zaDIwLjM1WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI0MS43NCAtMzgwLjQzKSIgc3R5bGU9ImZpbGw6ICNmZmNkMDUiLz4KICAgIDxwYXRoIGQ9Ik0yODkuMzYsMzk4LjgyaC0xLjc3Yy0yLjMyLTMuMjgtNC42My02LjU0LTYuOTMtMTAuMjNoMHYxMC4yM2gtMlYzODQuNTVoMS43N2MyLjMyLDMuMjYsNC42Myw2LjUsNi45MSwxMC4xN2gwVjM4NC41NWgydjE0LjI3WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI0MS43NCAtMzgwLjQzKSIgc3R5bGU9ImZpbGw6ICMyMzFmMjAiLz4KICAgIDxwYXRoIGQ9Ik0yOTQsMzkzLjE4YzAuNTctMS44NywxLjE0LTMuNjEsMS42NS01LjgxaDBjMC41NywyLjIsMS4wOCwzLjk0LDEuNjEsNS44MUgyOTRabTAuOTQtOC42MkwyOTAsMzk4LjgyaDIuMTJsMS4yNC0zLjg5aDQuM2wxLjEyLDMuODloMi43M0wyOTcsMzg0LjU1aC0yWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI0MS43NCAtMzgwLjQzKSIgc3R5bGU9ImZpbGw6ICMyMzFmMjAiLz4KICAgIDxwYXRoIGQ9Ik0zMDMuODMsMzk4LjgyVjM4Ni40N2gtMy43NXYtMS45MUgzMTB2MS45MWgtMy43NXYxMi4zNWgtMi40NVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yNDEuNzQgLTM4MC40MykiIHN0eWxlPSJmaWxsOiAjMjMxZjIwIi8+CiAgICA8cGF0aCBkPSJNMzEwLjgzLDM5OC44MlYzODQuNTVoMi40M3YxNC4yN2gtMi40M1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yNDEuNzQgLTM4MC40MykiIHN0eWxlPSJmaWxsOiAjMjMxZjIwIi8+CiAgICA8cGF0aCBkPSJNMzIwLjc5LDM5N2MtMi41NSwwLTMuNDUtMi44MS0zLjQ1LTUuNTRzMS01LjE0LDMuNDUtNS4xNCwzLjQ1LDIuNTEsMy40NSw1LjE0UzMyMy4zNCwzOTcsMzIwLjc5LDM5N1ptMCwyYzMuNzMsMCw2LjA1LTMuMzIsNi4wNS03LjU4LDAtNC0yLjU3LTcuMTgtNi4wNS03LjE4cy02LjA1LDMuMTgtNi4wNSw3LjE4QzMxNC43NCwzOTUuNzQsMzE3LjA2LDM5OS4wNywzMjAuNzksMzk5LjA3WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI0MS43NCAtMzgwLjQzKSIgc3R5bGU9ImZpbGw6ICMyMzFmMjAiLz4KICAgIDxwYXRoIGQ9Ik0zMzksMzk4LjgyaC0xLjc3Yy0yLjMyLTMuMjgtNC42My02LjU0LTYuOTMtMTAuMjNoMHYxMC4yM2gtMlYzODQuNTVoMS43N2MyLjMyLDMuMjYsNC42Myw2LjUsNi45MSwxMC4xN2gwVjM4NC41NWgydjE0LjI3WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI0MS43NCAtMzgwLjQzKSIgc3R5bGU9ImZpbGw6ICMyMzFmMjAiLz4KICAgIDxwYXRoIGQ9Ik0zNDMuNjcsMzkzLjE4YzAuNTctMS44NywxLjE0LTMuNjEsMS42NS01LjgxaDBjMC41NywyLjIsMS4wOCwzLjk0LDEuNjEsNS44MWgtMy4zWm0wLjk0LTguNjItNC45MywxNC4yN2gyLjEybDEuMjQtMy44OWg0LjNsMS4xMiwzLjg5aDIuNzNsLTQuNTQtMTQuMjdoLTJaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjQxLjc0IC0zODAuNDMpIiBzdHlsZT0iZmlsbDogIzIzMWYyMCIvPgogICAgPHBhdGggZD0iTTM1MS45LDM4NC41NWgyLjQzdjEyLjM1aDQuODN2MS45MkgzNTEuOVYzODQuNTVaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjQxLjc0IC0zODAuNDMpIiBzdHlsZT0iZmlsbDogIzIzMWYyMCIvPgogICAgPGc+CiAgICAgIDxwYXRoIGQ9Ik0yODcuODUsNDEwLjc2djUuODlhMTEuMjMsMTEuMjMsMCwwLDEtNC4wNi44OGMtNC4yLDAtNi44NS0zLjI2LTYuODUtNy40NiwwLTMuODksMi42NS03LjMsNi45My03LjNhNi4xLDYuMSwwLDAsMSwzLjQ3LDEuMWwtMC43OSwxLjY5YTUuMyw1LjMsMCwwLDAtMi42MS0uNzVjLTIuNjEsMC00LjM4LDIuMDYtNC4zOCw1LjNzMiw1LjM4LDQuMTQsNS4zOGEzLjYsMy42LDAsMCwwLDEuNzEtLjM1di00LjM4aDIuNDVaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjQxLjc0IC0zODAuNDMpIiBzdHlsZT0iZmlsbDogIzIzMWYyMCIvPgogICAgICA8cGF0aCBkPSJNMjk2LjYsNDA0LjkzaC00LjA4djMuOTFoNHYxLjkyaC00djQuNjFoNC44MXYxLjkyaC03LjI2VjQwM2g2LjUydjEuOTJaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjQxLjc0IC0zODAuNDMpIiBzdHlsZT0iZmlsbDogIzIzMWYyMCIvPgogICAgICA8cGF0aCBkPSJNMzA0LjE0LDQxNS40OWMtMi41NSwwLTMuNDQtMi44MS0zLjQ0LTUuNTRzMS01LjE0LDMuNDQtNS4xNCwzLjQ1LDIuNTEsMy40NSw1LjE0UzMwNi42OSw0MTUuNDksMzA0LjE0LDQxNS40OVptMCwyYzMuNzMsMCw2LjA1LTMuMzIsNi4wNS03LjU4LDAtNC0yLjU3LTcuMTgtNi4wNS03LjE4cy02LjA1LDMuMTgtNi4wNSw3LjE4QzI5OC4wOSw0MTQuMjEsMzAwLjQxLDQxNy41MywzMDQuMTQsNDE3LjUzWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI0MS43NCAtMzgwLjQzKSIgc3R5bGU9ImZpbGw6ICMyMzFmMjAiLz4KICAgICAgPHBhdGggZD0iTTMyMS45NCw0MTAuNzZ2NS44OWExMS4yNCwxMS4yNCwwLDAsMS00LjA2Ljg4Yy00LjIsMC02Ljg1LTMuMjYtNi44NS03LjQ2LDAtMy44OSwyLjY1LTcuMyw2LjkzLTcuM2E2LjA5LDYuMDksMCwwLDEsMy40NywxLjFsLTAuNzksMS42OWE1LjMsNS4zLDAsMCwwLTIuNjEtLjc1Yy0yLjYxLDAtNC4zOCwyLjA2LTQuMzgsNS4zczIsNS4zOCw0LjE0LDUuMzhhMy42LDMuNiwwLDAsMCwxLjcxLS4zNXYtNC4zOGgyLjQ1WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI0MS43NCAtMzgwLjQzKSIgc3R5bGU9ImZpbGw6ICMyMzFmMjAiLz4KICAgICAgPHBhdGggZD0iTTMyNi42Myw0MDQuOTNoMS4wOGEyLjA3LDIuMDcsMCwwLDEsMi4yNiwyLjMsMi41MiwyLjUyLDAsMCwxLTIuMzIsMi44M2wtMSwuMDZ2LTUuMlptNi4yLDEyLjM1TDMzMCw0MTEuMzdhNC44LDQuOCwwLDAsMCwyLjQ3LTQuMjRjMC0yLjc3LTEuNjktNC4xMi00LjQyLTQuMTJoLTMuODF2MTQuMjdoMi40NVY0MTEuOWgxLjFsMi4zLDUuMzhoMi43OVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yNDEuNzQgLTM4MC40MykiIHN0eWxlPSJmaWxsOiAjMjMxZjIwIi8+CiAgICAgIDxwYXRoIGQ9Ik0zMzYuODYsNDExLjY0YzAuNTctMS44NywxLjE0LTMuNjEsMS42NS01LjgxaDBjMC41NywyLjIsMS4wOCwzLjkzLDEuNjEsNS44MWgtMy4zWk0zMzcuOCw0MDNsLTQuOTMsMTQuMjdIMzM1bDEuMjQtMy44OWg0LjNsMS4xMiwzLjg5aDIuNzNMMzM5Ljg0LDQwM2gtMloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yNDEuNzQgLTM4MC40MykiIHN0eWxlPSJmaWxsOiAjMjMxZjIwIi8+CiAgICAgIDxwYXRoIGQ9Ik0zNDksNDAzaC0zLjgxdjE0LjI3aDIuNDVWNDExLjloMS4xYTQuNjYsNC42NiwwLDAsMCw0LjY5LTQuNzdDMzUzLjM5LDQwNC4zNiwzNTEuNyw0MDMsMzQ5LDQwM1ptLTAuMzUsNy4wNS0xLC4wNnYtNS4xOWgxLjFhMi4wNywyLjA3LDAsMCwxLDIuMjQsMi4zQTIuNTIsMi41MiwwLDAsMSwzNDguNjIsNDEwLjA3WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI0MS43NCAtMzgwLjQzKSIgc3R5bGU9ImZpbGw6ICMyMzFmMjAiLz4KICAgICAgPHBhdGggZD0iTTM2NC43Myw0MTcuMjhoLTIuNDV2LTYuODdoLTUuMDh2Ni44N2gtMi40M1Y0MDNoMi40M3Y1LjQ4aDUuMDh2LTUuNDRoMi40NXYxNC4yM1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yNDEuNzQgLTM4MC40MykiIHN0eWxlPSJmaWxsOiAjMjMxZjIwIi8+CiAgICAgIDxwYXRoIGQ9Ik0zNjcuMDcsNDE3LjI4VjQwM2gyLjQzdjE0LjI3aC0yLjQzWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI0MS43NCAtMzgwLjQzKSIgc3R5bGU9ImZpbGw6ICMyMzFmMjAiLz4KICAgICAgPHBhdGggZD0iTTM4MC41MSw0MDUuNmE1LjE1LDUuMTUsMCwwLDAtMi41MS0uNzljLTIuNDksMC00LjMsMi4wNi00LjMsNS4zczIsNS4zOCw0LjM2LDUuMzhhNC42Myw0LjYzLDAsMCwwLDIuNDUtLjcxbDAuNjcsMS43N2E2LjIxLDYuMjEsMCwwLDEtMy4yMiwxYy00LjIsMC02Ljg1LTMuMjYtNi44NS03LjQ2LDAtMy44OSwyLjYzLTcuMyw2Ljg5LTcuM2E2LDYsMCwwLDEsMy4yOCwxLjFaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjQxLjc0IC0zODAuNDMpIiBzdHlsZT0iZmlsbDogIzIzMWYyMCIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+Cg==') no-repeat center center !important;
+    display: block;
+    height: 50px;
+    width: 171px;
+    background-size: 171px 50px;
+    margin: 0px auto 0px;
+}
+
+.header {
+    margin: 30px 40px;
+}
+
+.btn-submit {
+    background: #ffcc00;
+    border-radius: 0;
+    color: #000;
+    margin: 0 auto;
+    text-transform: uppercase;
+    width: 100%;
+    border-color: #ffcc00;
+    border-style: unset;
+}
+
+.btn-submit:before {
+    background: #ffcc00;
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+}
+
+  .btn-submit:after {
+    background: #000;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width:0;
+    z-index: -1;
+    transition: width 0.3s;
+  }
+
+.btn-submit:hover,
+.btn-submit:focus {
+    background: black;
+    color: #fff;
+}
+
+.btn-submit:hover:after,
+.btn-submit:focus:after {
+    width: 100%;
+    transition: width 0.3s;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: #000 2px solid;
+    border-radius: 0;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background: black;
+    border: #000 2px solid;
+    color: white;
+}
+
+.btn-secondary:after {
+    background: #000;
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width:0;
+    z-index: -1;
+    transition: width 0.3s;
+}
+
+.btn-secondary:hover:after,
+.btn-secondary:focus:after {
+    width: 100%;
+    transition: width 0.3s;
+}
+
+/* Desktop styles   */
+.wrapper {
+    font-size: 14px;
+}
+
+.content {
+    border-radius: 0;
+    box-shadow: none;
+    padding-bottom: 40px;
+}
+
+.section {
+    box-shadow: none;
+    margin-top: 15px;
+    padding-top: 0;
+}
+
+.field .container {
+    margin: 10px 0 0;
+    padding: 0;
+}
+
+.title {
+    border-top: #e6e6e6 1px solid;
+    color: #000;
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding: 20px 0 0;
+    border-top: #e6e6e6 1px solid;
+}
+
+.workflow-login .title-primary {
+    border: 0;
+    padding: 0;
+}
+
+.footer .footer-login-link {
+    color: #000;
+    font-family: "GeoEditMedium", Arial, sans-serif !important;
+}
+
+/* form styles  */
+
+.form-section {
+    background: white !important;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.field-group {
+    position: relative;
+}
+
+.field .message-error, .field-error .name {
+    color: #fc4349;
+    font-family: "GeoEditMedium", Arial, sans-serif !important;
+    font-size: 12px;
+}
+
+.field-error input:not([type="checkbox"]):not([type="radio"]), .field-error input:not([type="checkbox"]):not([type="radio"]):focus, .field-error select, .field-error select:focus {
+    border-color: #fc4349;
+    border-radius: 0;
+    border-width: 2px;
+}
+
+.field-error input:not([type="checkbox"]):not([type="radio"])::-webkit-input-placeholder {
+    color: #555555;
+}
+
+.workflow-edit .field:not(.field-use-placeholder) input::-webkit-input-placeholder {
+    color: #abb0b8;
+}
+
+input:not([type="checkbox"]):not([type="radio"]), select, .toggle .name {
+    border-color: #555555;
+    border-radius: 0;
+    color: #555555;
+    font-size: 14px;
+}
+
+.checkbox {
+    border: 0;
+    padding-left: 31px;
+}
+
+.checkbox .name, .legal {
+    color: #555555;
+    font-size: 14px;
+}
+
+.checkbox .name::before {
+    background: #fff;
+    border-color: #555555;
+    border-radius: 0;
+    height: 21px;
+    width: 21px;
+}
+
+.checkbox input[type="checkbox"]:checked {
+    border: 0;
+}
+
+.checkbox input[type="checkbox"]:checked+.name:before {
+    background: #fc0;
+    background-image: none;
+    border: 0;
+    box-shadow: none;
+}
+.checkbox input[type="checkbox"]:checked+.name:after {
+    content: '';
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 11px;
+    border: solid #000;
+    border-width: 0 3px 3px 0;
+    display: block;
+    position: absolute;
+    -webkit-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    transform: rotate(35deg);
+}
+
+/*   create account: password    */
+.workflow-create-profile .title-primary {
+    margin-bottom: 0;
+}
+
+input[name="newPassword"] {
+    padding-right: 40px !important;
+}
+
+.show-password-action {
+    position: absolute;
+    right: 34px;
+    top: 25px;
+}
+
+.field-new-password .strength-meter .meter-bar {
+    background: none;
+}
+
+.field-new-password .strength-meter .meter-state {
+    font-size: 14px;
+    padding-top: 3px;
+}
+
+.field-new-password .strength-meter.invalid .step {
+    background-color: #e6e6e6;
+}
+
+.password-rules.message ul li {
+    color: #555555;
+    font-family: "GeoEditRegular", Arial, sans-serif !important;
+    font-size: 14px;
+}
+
+.checkbox input[name="togglePasswordDisplay"]+.name {
+    font-size: 0;
+    height: 32px;
+    position: absolute;
+    top: 0;
+}
+
+.checkbox input[name="togglePasswordDisplay"]+.name:after {
+    display: none !important;
+}
+
+.checkbox input[name="togglePasswordDisplay"]+.name:before {
+    background: transparent url("data:image/svg+xml;base64,PHN2ZyBjb2xvcj0iIzgwODA4MCIgZmlsbD0iIzgwODA4MCIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEuMzkzIDQuMjIybDEuNDE1LTEuNDE0IDE4LjM4NCAxOC4zODQtMS40MTQgMS40MTUtMy40OTYtMy40OTdjLTEuMzMuNTQ3LTIuNzczLjg5LTQuMjgyLjg5LTYuNjI3IDAtMTItNi42MjUtMTItOCAwLS43NTIgMS42MDctMy4wNzQgNC4xNDctNS4wMjRMMS4zOTMgNC4yMjJ6TTEyIDRjNi42MjcgMCAxMiA2LjYyNSAxMiA4IDAgLjc1Mi0xLjYwNyAzLjA3NC00LjE0NyA1LjAyNGwtMy4xOTgtMy4xOTZhNSA1IDAgMCAwLTYuNDgzLTYuNDgzTDcuNzE4IDQuODlDOS4wNDggNC4zNDMgMTAuNDkgNCAxMiA0em0tNC42NTYgNi4xNzNhNSA1IDAgMCAwIDYuNDgzIDYuNDgzbC0xLjY2MS0xLjY2TDEyIDE1YTMgMyAwIDAgMS0zLTNsLjAwNS0uMTY2LTEuNjYtMS42NnpNMTIgOWEzIDMgMCAwIDEgMyAzbC0uMDA1LjE2Ni0zLjE2Mi0zLjE2MUwxMiA5eiIgY2xhc3M9InNjLWtBenpHWSBkR3dVTFciPjwvcGF0aD48L3N2Zz4=") no-repeat center center;
+    border: 0;
+    box-shadow: none;
+}
+
+.checkbox input[name="togglePasswordDisplay"]:checked+.name:before {
+    background: transparent url("data:image/svg+xml;base64,PHN2ZyBhbHQ9IiIgYXJpYS1oaWRkZW49InRydWUiIGFyaWEtbGFiZWw9IiIgY29sb3I9IiM4MDgwODAiIGZpbGw9IiM4MDgwODAiIHJvbGU9ImltZyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyIDRjNi42MjcgMCAxMiA2LjYyNSAxMiA4cy01LjM3MyA4LTEyIDgtMTItNi42MjUtMTItOCA1LjM3My04IDEyLTh6bTAgM2E1IDUgMCAxIDAgMCAxMCA1IDUgMCAwIDAgMC0xMHptMCAyYTMgMyAwIDEgMSAwIDYgMyAzIDAgMCAxIDAtNnoiIGNsYXNzPSJzYy1rQXp6R1kgZEd3VUxXIj48L3BhdGg+PC9zdmc+") no-repeat center center;
+    border: 0;
+    box-shadow: none;
+}
+
+/* update password  */
+.field-current-password + .field-new-password + .show-password-action {
+    top: 82px;
+}
+.field-current-password + .field-new-password.field-error + .show-password-action {
+    top: 82px;
+}
+
+.field-current-password.field-error + .field-new-password + .show-password-action {
+    top: 110px;
+}
+
+.field-current-password.field-error + .field-new-password.field-error + .show-password-action {
+    top: 110px;
+}
+/* Login screen     */
+
+.workflow-login .block-need-help-signing-in {
+    text-align: center;
+}
+
+.workflow-login .block-need-help-signing-in > a {
+    font-family: "GeoEditRegular", Arial, sans-serif !important;
+    position: relative;
+    text-decoration: none;
+    z-index: 1;
+}
+
+.workflow-login .block-need-help-signing-in > a:hover {
+    color: #fff;
+}
+
+.workflow-login .block-need-help-signing-in > a:after {
+    background: #fc0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: height 0.3s;
+    height: 0;
+}
+
+.workflow-login .block-need-help-signing-in > a:hover:after {
+    height: 100%;
+}
+
+p.social-login-help  {
+    margin-bottom: 40px;
+}
+
+.block-help-link {
+    margin-bottom: 15px;
+}
+
+.block-need-help-signing-in > a {
+    border-bottom: #ffcc00 2px solid;
+}
+
+.block-need-help-signing-in > a:hover {
+    text-decoration: none;
+}
+
+.banner.message-error.login.message .container {
+    background: rgba(186, 11, 32, .1) url("data:image/svg+xml;base64,PHN2ZyBhbHQ9IiIgYXJpYS1oaWRkZW49InRydWUiIGFyaWEtbGFiZWw9IiIgZmlsbD0iI0JBMEIyMCIgcm9sZT0iaW1nIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTQuNzkgMjcuODRhMTIuNzUgMTIuNzUgMCAxMTEyLjc1LTEyLjc1IDEyLjc2IDEyLjc2IDAgMDEtMTIuNzUgMTIuNzV6bTAtMjRBMTEuMjUgMTEuMjUgMCAxMDI2IDE1LjA5IDExLjI2IDExLjI2IDAgMDAxNC43OSAzLjg0eiIvPjxwYXRoIGQ9Ik0xMy4zMyAyMC42M2ExLjQyIDEuNDIgMCAwMTEuNDUtMS40MyAxLjQzIDEuNDMgMCAxMTAgMi44NiAxLjQyIDEuNDIgMCAwMS0xLjQ1LTEuNDN6bS4yMS0yLjkzVjguMDZIMTZ2OS42NHoiLz48L3N2Zz4=") no-repeat 10px center;
+    background-size: 20px 20px;
+    border-radius: 0;
+    color: #BA0B20;
+    line-height: 18px;
+    padding: 10px 10px 10px 40px;
+}
+
+/* enter password */
+.banner + .workflow-new.workflow-login .title-primary,
+.banner + .workflow-create-profile .title-primary{
+    margin-left: 42px;
+    padding-right: 42px;
+}
+
+.complete-identity-registration .userInfo.userInfo-label {
+    margin-left: 42px;
+    padding-left: 0;
+    padding-right: 42px;
+}
+
+.field.complete-identity-registration .userInfo.userInfo-label.value span::after {
+    right: 42px;
+}
+
+.finish-sign-in .userInfo .badge {
+    padding-right: 42px;
+}
+
+/* Need help screen */
+.block-customer-support-reference {
+    margin-top: 15px;
+}
+
+/* Focus */
+button:focus {
+    outline: 2px solid #0593e9 !important; /* for non-webkit browsers */
+    outline: 5px auto -webkit-focus-ring-color !important;
+}
+
+a:focus {
+    outline: 2px solid #0593e9 !important; /* for non-webkit browsers */
+    outline: 5px auto -webkit-focus-ring-color !important;
+}
+
+.checkbox input[type="checkbox"]:focus + .name::before {
+    outline: 2px solid #0593e9 !important; /* for non-webkit browsers */
+    outline: 5px auto -webkit-focus-ring-color !important;
+}
+
+/* Back arrow */
+#back:after {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='BackArrow_Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1000 1000' style='enable-background:new 0 0 1000 1000;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E.arrow-fill%7Bfill:%23555555;%7D%3C/style%3E%3Cg%3E%3Cpath class='arrow-fill' d='M222.7,437l307.6-307.6c24.6-24.6,25.1-64.2,0.1-89.2l1,1c-24.6-24.6-64.9-24.2-89.2,0.1L28.4,455.2c-24.6,24.6-24.3,65,0,89.3l413.8,413.8c24.6,24.6,64.2,25.1,89.2,0.1l-1,1c24.6-24.6,24.6-64.5-0.1-89.2L222.7,562.8h704.5c34.7,0,62.8-27.9,62.8-62.9l0,0c0-34.7-28.2-62.9-62.8-62.9H222.7L222.7,437z'/%3E%3C/g%3E%3C/svg%3E");
+    opacity: 1;
+}
+
+/* field label accessibility */
+label:not(.checkbox) .name {
+    border: 0;
+    clip-path: inset(50%);
+    clip: rect(0,0,0,0);
+    display: block;
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    -webkit-clip-path: inset(50%);
+}
+
+/* Account Profile */
+/* edit */
+.field.field-email.field-editable-value .value>a.action {
+    background-color: #f7f7f7;
+}
+
+/* desktop media queries    */
+@media screen and (min-width: 600px) {
+
+    body {
+        background: rgba(51,51,51, .5);
+    }
+
+    .wrapper {
+        width: 418px;
+    }
+
+    .field {
+        margin-bottom: 15px;
+    }
+
+}
+
+/* mobile media queries    */
+@media screen and (max-width: 600px) {
+    .field-current-password + .field-new-password + .show-password-action {
+        top: 86px;
+    }
+    .field-current-password + .field-new-password.field-error + .show-password-action {
+        top: 86px;
+    }
+
+    .field-current-password.field-error + .field-new-password + .show-password-action {
+        top: 114px;
+    }
+
+    .field-current-password.field-error + .field-new-password.field-error + .show-password-action {
+        top: 114px;
+    }
+}
+
+body [data-style="red"] {
+    background: red;
+}
