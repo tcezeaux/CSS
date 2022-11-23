@@ -551,5 +551,5 @@ label:not(.checkbox) .name {
 }
 
 body {
-    background: rgba(0,0,0,0)
+    background: rgba(0,0,0,0) !important;
 }
