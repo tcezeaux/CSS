@@ -549,3 +549,7 @@ label:not(.checkbox) .name {
         transform: translateY(0);
     }
 }
+
+body {
+    background: rgba(0,0,0,0)
+}
