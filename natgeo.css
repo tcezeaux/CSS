@@ -537,6 +537,8 @@ label:not(.checkbox) .name {
     position:fixed;
     bottom:0;
     animation: fadeIn 0.5s;
+    max-height: -webkit-fill-available;
+    overflow: auto;
 }
 
 
