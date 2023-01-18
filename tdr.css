@@ -760,3 +760,7 @@ label.input-text .input-wrapper.field-error:after {
 button#BtnCreateAccount {
     display: none;
 }
+
+button#BtnNotYou {
+  display: none;
+}
